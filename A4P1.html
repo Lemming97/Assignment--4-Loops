@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>A4P1 by LINDSEY MARTIN</title>
+    <style>
+        body {
+            background-color: #FFDBDB;
+        }
+
+        .product {
+            font-weight: bold;
+        }
+
+        td {
+            padding: 6px;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h1>A4P1 Lindsey's Flower Shop</h1>
+    <p>Welcome to Lindsey's Flower Shop, where you can find any flower arrangement you like. </p>
+    <p>This month's specials:</p>
+    <table>
+        <tbody>
+            <tr>
+                <td style="text-align: center"><img src="Flower1.jpeg" alt="flower set 1" height="250" width="250"></td>
+                <td>
+                    <p class="product">Pink Rose White Lily Bouquet at $45</p>
+                    <p>This elegant white lily flower bouquet is a classic way to show someone you care with an affordable gift. The beauty of this freshly cut flowers centerpiece will add serenity to your home. Hand-delivered from a local florist, this arrangement features light-pink rose, chrysanthemum, statice, and lily blooms. This luxury white lilies bouquet features pops of color with whisper soft pink carnation blossoms and rose selections</p>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center"><img src="flower2.jpeg" alt="flower set 2" height="250" width="250"></td>
+                <td>
+                    <p class="product">Sunflower Mason Jar Bouquet at $50</p>
+                    <p>Feel as if you're walking through a field of sunflower blooms and more. These inexpensive mixed flowers bouquet will evoke sunshine that will brighten up any home or office or someone special and deserving! Warm fall hues, seasonal and fresh cut alstroemeria mix with colorful pom blossoms for a hand delivered farm inspired flower arrangement that's certain to make one smile. Both affordable and touching, it feels as though the countryside comes indoors with this display. The jar can be used afterwards for whatever your recipient wants! </p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        //prices for flowers
+        const PRICE1 = 45;
+        const PRICE2 = 50;
+
+        //while loop 1
+        var input1, cusName;
+        input1 = prompt("Please enter your name:", "Guest");
+        cusName = String(input1);
+
+        while (cusName.length == 0) {
+            input1 = prompt(input1 + " is not a valid input! ", "Guest");
+            cusName = String(input1);
+        } 
+        console.log(cusName.length);
+        if (cusName.length >= 1) {
+            document.write("<p>Thank you " + cusName);
+        }
+
+        /* 
+        A shorter example not to be used at this time
+        while (!cusName); {
+            input1 = prompt(input1 + " is not a valid input! ", "Guest");
+            cusName = String(input1);
+
+        } */
+
+
+        //while loop 2
+        var input2, quantity1;
+        input2 = prompt(cusName + " how many Pink Rose White Lily Bouquets would you like to order?", "1");
+        quantity1 = parseInt(input2);
+
+        while (isNaN(quantity1) || quantity1 < 0 || quantity1 > 1000) {
+            input2 = prompt(input2 + " is not a valid input! Enter your quantity for Pink Rose White Lily Bouquets again:", "1");
+            quantity1 = parseInt(input2);
+        }
+        if (quantity1 >= 1) {
+            document.write("<p>" + quantity1 + " = order of Pink Rose White Lily Bouquets.</p>");
+        } else {
+            document.write("<p>You did not purchase the Pink Rose White Lily Bouquet.</p>");
+        }
+
+
+        // while loop 3
+        var input3, quantity2;
+        input3 = prompt(cusName + " how many Sunflower Mason Jar Bouquets would you like to order?", "1");
+        quantity2 = parseInt(input3);
+
+        while (isNaN(quantity2) || quantity2 < 0 || quantity2 > 1000) {
+            input3 = prompt(input3 + " is not a valid input! Enter your quantity for Sunflower Mason Jar Bouquets again:", "1");
+            quantity2 = parseInt(input3);
+        }
+        if (quantity2 >= 1) {
+            document.write("<p>" + quantity2 + " = order of Sunflower Mason Jar Bouquets.</p>");
+        } else {
+            document.write("<p>You did not purchase the Sunflower Mason Jar Bouquet.</p>");
+        }
+
+
+        //total cost 
+        var cost1 = quantity1 * PRICE1;
+        document.write("<p>Thank you ", cusName + " for your purchase of " + quantity1 + " Pink Rose White Lily Bouquet at a total of $" + cost1 + "</p>");
+        var cost2 = quantity2 * PRICE2;
+        document.write("<p>Thank you ", cusName + " for your purchase of " + quantity2 + " Sunflower Mason Jar Bouquet at a total of $" + cost2 + "</p>");
+
+    </script>
+</body>
+
+</html>
