@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>A4P2 by LINDSEY MARTIN</title>
+    <style>
+        body {
+            background-color: #FFDBDB;
+        }
+
+        .product {
+            font-weight: bold;
+        }
+
+        td {
+            padding: 6px;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+    </style>
+
+    <script>
+        //prices for flowers
+        const PRICE1 = 45;
+        const PRICE2 = 50;
+
+        function inputQuantity(strProduct, custName, min, max) {
+            var input, quantity;
+            input = prompt(custName + " how many " + strProduct + " would you like to order?", "1");
+            quantity = parseInt(input);
+
+            while (isNaN(quantity) || quantity < min || quantity > max) {
+                input = prompt(input + " is not a valid input!", "1");
+                quantity = parseInt(input);
+            }
+            if (quantity >= 1) {
+                document.write("<p>" + quantity + " = order of " + strProduct + "</p>");
+            } else {
+                document.write("<p>You did not purchase the " + strProduct + "</p>");
+            }
+            return quantity
+        }
+
+    </script>
+
+
+</head>
+
+<body>
+    <h1>A4P2 Lindsey's Flower Shop</h1>
+    <p>Welcome to Lindsey's Flower Shop, where you can find any flower arrangement you like. </p>
+    <p>This month's specials:</p>
+    <table>
+        <tbody>
+            <tr>
+                <td style="text-align: center"><img src="Flower1.jpeg" alt="flower set 1" height="250" width="250"></td>
+                <td>
+                    <p class="product">Pink Rose White Lily Bouquet at $45</p>
+                    <p>This elegant white lily flower bouquet is a classic way to show someone you care with an affordable gift. The beauty of this freshly cut flowers centerpiece will add serenity to your home. Hand-delivered from a local florist, this arrangement features light-pink rose, chrysanthemum, statice, and lily blooms. This luxury white lilies bouquet features pops of color with whisper soft pink carnation blossoms and rose selections</p>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center"><img src="flower2.jpeg" alt="flower set 2" height="250" width="250"></td>
+                <td>
+                    <p class="product">Sunflower Mason Jar Bouquet at $50</p>
+                    <p>Feel as if you're walking through a field of sunflower blooms and more. These inexpensive mixed flowers bouquet will evoke sunshine that will brighten up any home or office or someone special and deserving! Warm fall hues, seasonal and fresh cut alstroemeria mix with colorful pom blossoms for a hand delivered farm inspired flower arrangement that's certain to make one smile. Both affordable and touching, it feels as though the countryside comes indoors with this display. The jar can be used afterwards for whatever your recipient wants! </p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        //while loop 1
+        var input1, cusName;
+        input1 = prompt("Please enter your name:", "Guest");
+        cusName = String(input1);
+
+        while (cusName.length == 0) {
+            input1 = prompt(input1 + " is not a valid input! ", "Guest");
+            cusName = String(input1);
+        }
+        console.log(cusName.length);
+        if (cusName.length >= 1) {
+            document.write("<p>Thank you " + cusName);
+        }
+
+
+        //calls to the function
+        var quantity1 = inputQuantity("Pink Rose White Lily Bouquet", cusName, 0, 1000);
+        var quantity2 = inputQuantity("Sunflower Mason Jar Bouquet", cusName, 0, 1000);
+
+
+        //total cost 
+        var cost1 = quantity1 * PRICE1;
+        document.write("<p>Thank you ", cusName + " for your purchase of " + quantity1 + " Pink Rose White Lily Bouquet at a total of $" + cost1 + "</p>");
+        var cost2 = quantity2 * PRICE2;
+        document.write("<p>Thank you ", cusName + " for your purchase of " + quantity2 + " Sunflower Mason Jar Bouquet at a total of $" + cost2 + "</p>");
+
+    </script>
+</body>
+
+</html>
